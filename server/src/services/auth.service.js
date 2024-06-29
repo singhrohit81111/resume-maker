@@ -1,4 +1,4 @@
-const asyncHandler = require("../utils/asyncHander");
+const asyncHandler = require("../utils/asyncHandler");
 
 const register = asyncHandler(async (req, res, next) => {});
 

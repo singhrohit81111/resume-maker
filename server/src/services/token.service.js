@@ -1,4 +1,4 @@
-const asyncHandler = require("../utils/asyncHander");
+const asyncHandler = require("../utils/asyncHandler");
 
 const generateAccessAndRefreshToken = asyncHandler(
   async (req, res, next) => {}

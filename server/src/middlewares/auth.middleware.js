@@ -1,4 +1,4 @@
-const asyncHandler = require("../utils/asyncHander");
+const asyncHandler = require("../utils/asyncHandler");
 
 const verifyJwt = asyncHandler(async (req, res, next) => {});
 
