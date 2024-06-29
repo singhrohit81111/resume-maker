@@ -15,9 +15,8 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "16Kb" }));
 
-app.use("/", userRoutes);
-app.use('/resume',resumeRoutes);
+app.use("/api/v1", userRoutes);
+app.use('/api/v2/resume',resumeRoutes);
 
-app.use(errorMiddleware);
 
 module.exports = app;
