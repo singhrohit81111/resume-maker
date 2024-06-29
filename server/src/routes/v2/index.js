@@ -1,0 +1,1 @@
+module.exports.resumeRoutes=require('./resume.routes');
