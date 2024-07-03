@@ -1,6 +1,15 @@
 const asyncHandler = require("../utils/asyncHandler");
+const {authService,tokenService}=require('../services');
+const { OPTIONS } = require("../config/constants");
 
-const register = asyncHandler(async (req, res, next) => {});
+const register = asyncHandler(async (req, res, next) => {
+    const{firstName,lastName,email,password}=req.body;
+    const createdUser=await authService.register(firstName,lastName,email,password);
+    const{accessToken,refreshToken}=await tokenService.generateAccessAndRefreshToken(createdUser._id);
+
+    res.status(200).cookie("accesToken",accessToken,OPTIONS).cookie("refreshToken",OPTIONS).json("user created successfully")
+    
+});
 
 const login = asyncHandler(async (req, res, next) => {});
 

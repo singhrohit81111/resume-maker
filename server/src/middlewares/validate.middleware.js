@@ -8,12 +8,13 @@ const validate = (schema) => {
     const { value, error } = Joi.compile(validSchema).
         prefs({ errors: { label: 'key' }, abortEarly: false }).
         validate(object);
-if(error){
-    const errorMessage=error.details.map(details=>details.message).join(",");
-    throw new ApiError(400,errorMessage);
-}
+        
+    if (error) {
+        const errorMessage = error.details.map(details => details.message).join(",");
+        throw new ApiError(400, errorMessage);
+    }
 
-    Object.assign(req,value);
+    Object.assign(req, value);
     return next();
 
 

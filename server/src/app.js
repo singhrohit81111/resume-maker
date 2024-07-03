@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const userRoutes = require("./routes/v1");
+const authRoutes = require("./routes/v1");
 const errorMiddleware = require("./middlewares");
-const { resumeRoutes } = require("./routes/v2");
+const  resumeRoutes = require("./routes/v2");
 
 app.use(
   cors({
@@ -15,7 +15,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "16Kb" }));
 
-app.use("/api/v1", userRoutes);
+app.use("/api/v1", authRoutes);
 app.use('/api/v2/resume',resumeRoutes);
 
 
