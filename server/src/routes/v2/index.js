@@ -1,1 +1,3 @@
-module.exports.resumeRoutes=require('./resume.routes');
+const resumeRoutes = require("./resume.routes");
+
+module.exports = { resumeRoutes };
