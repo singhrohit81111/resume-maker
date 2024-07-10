@@ -12,7 +12,7 @@ const validate = (schema) => (req, res, next) => {
     const errorMessage = error.details
       .map((details) => details.message)
       .join(",");
-    throw new ApiError(400, errorMessage);
+     next(new ApiError(400, errorMessage));
   }
 
   Object.assign(req, value);

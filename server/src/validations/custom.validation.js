@@ -11,6 +11,7 @@ const password = (value, helpers) => {
       "password must contain at least 1 letter and 1 number"
     );
   }
+  return value;
 };
 
 module.exports = { objectId, password };

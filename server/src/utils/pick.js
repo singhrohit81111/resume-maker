@@ -4,7 +4,7 @@ const pick = (object, keys) => {
             obj[key]=object[key];
         }
         return obj;
-    })
+    },{})
 };
 
 module.exports = pick;
