@@ -20,10 +20,25 @@ const register = async (firstName, lastName, email, password) => {
     return user;
 }
 
-const login = asyncHandler(async (req, res, next) => { });
+const login = async(email,password) => {
+    const existingUser=await User.findOne({email});
+    if(!existingUser){
+        throw new ApiError(409,"User not exits! please Signup");
+    }
+    const isPasswordMatching=await existingUser.isPasswordCorrect(password);
+    if(!isPasswordMatching){
+        throw new ApiError(409,"Password deonot match!")
+    }
+    return existingUser;
+ };
 
 const updatePassword = asyncHandler(async (req, res, next) => { });
 
 const logout = asyncHandler(async (req, res, next) => { });
 
-module.exports = { register, login, updatePassword, logout };
+const getCurrentUser=async(userId)=>{
+    const currentUser=await User.findById(userId).select("-password");
+    return currentUser;
+}
+
+module.exports = { register, login, updatePassword, logout ,getCurrentUser};
