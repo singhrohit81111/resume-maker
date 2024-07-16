@@ -1,2 +1,5 @@
-module.exports.User = require("./user.model");
-module.exports.Resume = require("./resume.model");
+const User=require('./user.model');
+const  Resume=require('./resume.model')
+
+
+module.exports={User,Resume}
